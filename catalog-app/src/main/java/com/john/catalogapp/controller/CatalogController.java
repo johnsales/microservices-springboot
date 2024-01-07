@@ -3,12 +3,12 @@ package com.john.catalogapp.controller;
 import com.john.catalogapp.dto.Product;
 import com.john.catalogapp.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
@@ -16,9 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CatalogController {
     private final ProductRepository productRepository;
-
-    @Value("${config-placeholder}")
-    private String configServerPlaceholder;
 
     @GetMapping("/{uniqId}")
     public ResponseEntity<Product> getProductByUniqId(@PathVariable String uniqId) {
@@ -36,10 +33,5 @@ public class CatalogController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(products);
-    }
-
-    @GetMapping("/config")
-    public String a(){
-        return configServerPlaceholder;
     }
 }
