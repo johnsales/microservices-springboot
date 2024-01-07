@@ -1,10 +1,10 @@
-package com.john.configserver;
+package com.john.catalogapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ConfigServerApplicationTests {
+class CatalogCatalogAppApplicationTests {
 
     @Test
     void contextLoads() {

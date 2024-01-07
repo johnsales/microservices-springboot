@@ -1,13 +1,11 @@
-package com.john.inventoryapp;
+package com.john.catalogapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InventoryAppApplication {
-
+public class CatalogApp {
     public static void main(String[] args) {
-        SpringApplication.run(InventoryAppApplication.class, args);
+        SpringApplication.run(CatalogApp.class, args);
     }
-
 }
