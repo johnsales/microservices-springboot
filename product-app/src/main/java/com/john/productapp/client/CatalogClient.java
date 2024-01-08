@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.Optional;
 
-@FeignClient(name = "catalogClient", url = "http://localhost:8080") // Update URL accordingly
+@FeignClient(name = "catalog-service") // Update URL accordingly
 public interface CatalogClient {
     @GetMapping("/api/catalog/{uniqId}")
     Optional<ProductRecord> getProductByUniqId(@PathVariable String uniqId);

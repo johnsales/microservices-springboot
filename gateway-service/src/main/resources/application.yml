@@ -8,40 +8,17 @@ spring:
           uri: lb://product-service
           predicates:
             - Path=/product/**
-
-
-
-
-
-logging:
-  level:
-    io.netty: DEBUG
-
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: catalog-service
-#          uri: lb://catalog-service
-#          predicates:
-#            - Path=/catalog/**
-#        - id: inventory-service
-#          uri: lb://inventory-service
-#          predicates:
-#            - Path=/inventory/**
-#        - id: product-service
-#          uri: lb://product-service
-#          predicates:
-#            - Path=/product/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ # URL of your Eureka server
+    registerWithEureka: false
+    fetchRegistry: true
   instance:
     preferIpAddress: true
 
-
-
 server:
-  port: 80
+  port: 8080
