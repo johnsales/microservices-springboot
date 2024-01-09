@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  registry-service:
+    build: ./registry-service
+    ports:
+      - "8761:8761"
+
+  config-server:
+    build: ./config-server
+    depends_on:
+      - registry-service
+
+  catalog-app:
+    build: ./catalog-app
+    depends_on:
+      - config-server
+
+  inventory-app:
+    build: ./inventory-app
+    depends_on:
+      - config-server
+
+  product-app:
+    build: ./product-app
+    depends_on:
+      - config-server
+
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - product-app
+      - catalog-app
+      - inventory-app

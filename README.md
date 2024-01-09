@@ -20,7 +20,15 @@ Getting practical skills in development of a microservices application using Spr
 - Use Openfeign for calls between services.
 - Use resilience4j for protecting inter-component REST calls from the product application. The fallback behavior is supposed to result in ‘503 service unavailable’ in case of unavailability of any dependant services. Use synthetic delays (sleep time) in the inventory and catalog applications to increase response latency. Play with ‘failureRateThreshold’, ‘recordExceptions’, ‘minimumNumberOfCalls’ and other configurations to simulate circuit breaker behavior.
 
-## Project Assessment
-1. Walk through application testing scenario and make sure they pass correctly (items #3-5).
-2. Make code review to ensure implementation quality within the scope of the project.
-3. Questions on implementation to make sure that trainee understands how Gateway, Configuration server and registration service work in the capstone application.
+## Execute Project
+
+- docker-compose build
+- docker-compose up
+- urls: 
+  - http://localhost:8080/product/api/products/sku/{sku}
+  - http://localhost:8080/product/api/products/{uniq_id}
+- sample url: http://localhost:8080/product/api/products/sku/pp5006790780
+- sample url: http://localhost:8081/api/products/ca61adb53a4b26f605f10fab385bea09
+
+
+

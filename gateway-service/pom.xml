@@ -40,12 +40,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-resolver-dns-native-macos</artifactId>
-            <version>4.1.68.Final</version> <!-- use the version that matches your Netty version -->
-            <classifier>osx-aarch_64</classifier> <!-- for ARM-based Macs -->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.netty</groupId>-->
+<!--            <artifactId>netty-resolver-dns-native-macos</artifactId>-->
+<!--            <version>4.1.68.Final</version> &lt;!&ndash; use the version that matches your Netty version &ndash;&gt;-->
+<!--            <classifier>osx-aarch_64</classifier> &lt;!&ndash; for ARM-based Macs &ndash;&gt;-->
+<!--        </dependency>-->
 
     </dependencies>
 

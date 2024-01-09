@@ -28,6 +28,9 @@ public class CatalogController {
 
     @GetMapping("/sku/{sku}")
     public ResponseEntity<List<Product>> getProductsBySku(@PathVariable String sku) {
+        if ("error".equals(sku)) {
+            throw new RuntimeException("Simulated server error");
+        }
         List<Product> products = productRepository.findBySku(sku);
         if (products.isEmpty()) {
             return ResponseEntity.notFound().build();

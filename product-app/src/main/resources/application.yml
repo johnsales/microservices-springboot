@@ -2,7 +2,14 @@ spring:
   application:
     name: product-service
   config:
-    import: "optional:configserver:http://localhost:8888"
+    import: "optional:configserver:http://config-server:8888"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://registry-service:8761/eureka
+  instance:
+    prefer-ip-address: true
 
 server:
   port: 8081
@@ -11,10 +18,31 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,circuitbreakers
 
 info:
   app:
     name: Product Service
     description: Service that retrive in stock products
     version: 1.0.0
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 5 # last 5 requests are considered
+        minimumNumberOfCalls: 2
+        failureRateThreshold: 50 # 50%
+        waitDurationInOpenState: 20000 #20 seconds
+        recordExceptions:
+          - feign.FeignException
+    instances:
+      available-products-sku:
+        baseConfig: default
+      available-products-uni-id:
+        baseConfig: default
+
+#      catalog-service:
+#        baseConfig: default
+#      inventory-service:
+#        baseConfig: default

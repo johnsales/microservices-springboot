@@ -10,4 +10,6 @@ spring:
           search-paths: config
           clone-on-start: true
           default-label: main
+  application:
+    name: config-server
 
