@@ -12,6 +12,8 @@ services:
 
   catalog-app:
     build: ./catalog-app
+    ports:
+      - "8082:8082"
     depends_on:
       - config-server
 

@@ -3,6 +3,7 @@ package com.john.catalogapp.controller;
 import com.john.catalogapp.dto.Product;
 import com.john.catalogapp.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CatalogController {
     private final ProductRepository productRepository;
+
+//    @Value("${config-placeholder}")
+//    private String configPlaceholder;
 
     @GetMapping("/{uniqId}")
     public ResponseEntity<Product> getProductByUniqId(@PathVariable String uniqId) {
@@ -37,4 +41,11 @@ public class CatalogController {
         }
         return ResponseEntity.ok(products);
     }
+
+    //confi-server needs to start first
+//    @GetMapping("/config")
+//    public ResponseEntity<String> getConfig() {
+//        return ResponseEntity.ok(configPlaceholder);
+//    }
+
 }

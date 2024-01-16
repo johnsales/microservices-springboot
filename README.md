@@ -22,8 +22,8 @@ Getting practical skills in development of a microservices application using Spr
 
 ## Execute Project
 
-- docker-compose build
-- docker-compose up
+- docker-compose build | docker-compose build catalog-app
+- docker-compose up | docker-compose up -d --no-deps catalog-app | docker-compose down
 - urls: 
   - http://localhost:8080/product/api/products/sku/{sku}
   - http://localhost:8080/product/api/products/{uniq_id}
